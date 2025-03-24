@@ -29,10 +29,6 @@ nomFichier= "CRMG2SG12019.atn"
 
 radius, theta= readCoord(nomFichier)
 
-for i in range(5):
-  print(f"point {1+i}: ({radius[i]}, {np.degrees(theta[i])}°)")
-
-
 
 def polarPlot(radius, theta):
   plt.figure(figsize=(6, 6))
