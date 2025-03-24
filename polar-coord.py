@@ -1,7 +1,5 @@
 import numpy as np 
 import matplotlib.pyplot as plt
-import math
-import itertools
 import traceback
 
 def readCoord(filename):
@@ -9,12 +7,15 @@ def readCoord(filename):
   #theta1=[]
   with open(filename, 'r') as file:
     for i, line in enumerate(file):
-      if i<=4:
-        continue
+      
       try:
-        radius.append(float(line.strip()))
-      except Exception:
-        print(traceback.format_exc())
+        value= float(line.strip())
+        try:
+          radius.append(value)
+        except Exception:
+          print(traceback.format_exc())
+      except ValueError:
+        continue
     
     maxv= max(radius)
     if max(radius)!= 0:
