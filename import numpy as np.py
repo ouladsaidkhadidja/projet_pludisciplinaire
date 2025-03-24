@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def lire_fichier(nomfic):
+def lirefichier(nomfic):
     valeurs = []
     with open(nomfic, "r") as f:
         for ligne in f:
@@ -14,16 +14,16 @@ def lire_fichier(nomfic):
     return np.array(valeurs)
 
 
-def convertir_en_puissance_relative(valeursdb):
+def convertirenpuissancerel(valeursdb):
     Pmax = np.max(10**(valeursdb / 10))  # pmax
     return (10**(valeursdb / 10)) / Pmax  # P/Pmax
 
 # les angles
-def generer_angles(n):
+def angles(n):
     return np.linspace(0, 2 * np.pi, n)  # radian
 
 
-def tracer_diagramme_polaire(angles, valeurs):
+def dpolaire(angles, valeurs):
     plt.figure(figsize=(8, 8))
     ax = plt.subplot(111, projection="polar")
     ax.plot(angles, valeurs, "b.-")  
@@ -37,14 +37,14 @@ def tracer_diagramme_polaire(angles, valeurs):
 fichier = "C:\\Users\\Thinkpad T490\\OneDrive\\Bureau\\t20191h.txt"
 #fichier="C:\\Users\\Thinkpad T490\\OneDrive\\Bureau\\datapol.txt"
 #fichier ="C:\\Users\\Thinkpad T490\\OneDrive\\Bureau\\t20192h.txt"
-valeursdb = lire_fichier(fichier)  # Lire le fichier
+valeursdb = lirefichier(fichier)  # Lire le fichier
 print(valeursdb)
-valeursrel = convertir_en_puissance_relative(valeursdb)  #  P/Pmax
+valeursrel = convertirenpuissancerel(valeursdb)  #  P/Pmax
 
-angles = generer_angles(len(valeursdb))  
+angles = angles(len(valeursdb))  
 
 
-tracer_diagramme_polaire(angles, valeursrel)
+dpolaire(angles, valeursrel)
 
 
 
