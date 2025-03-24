@@ -25,7 +25,7 @@ def readCoord(filename):
   
   return radius, theta
 
-nomFichier= "CRMG2SG12019.atn"
+nomFichier= "CRMG1SG12019.atn"
 
 radius, theta= readCoord(nomFichier)
 
@@ -34,6 +34,8 @@ def polarPlot(radius, theta):
   plt.figure(figsize=(6, 6))
   ax= plt.subplot(111, projection= 'polar')
   ax.plot(theta, radius, marker='.',markersize=1, linestyle='-', lw= 0.9)
+  ax.set_theta_zero_location("N")
+  ax.set_theta_direction(-1)
   #line.set_linewidth(0.5)
   plt.title("Polar plot")
   plt.show()
